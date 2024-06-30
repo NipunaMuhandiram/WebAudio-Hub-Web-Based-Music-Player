@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Slider</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+
+  <div class="album-cover">
+    <div class="swiper">
+        <div class="swiper-wrapper" id="swiper-wrapper">
+            
+        </div>
+    </div>
+</div>
+
+
+    <div class="music-player">
+      <h1>Title</h1>
+      <p>Song Name</p>
+
+      <audio id="song">
+        <source src="" type="audio/mpeg" />
+      </audio>
+
+      <input type="range" value="0" id="progress" />
+
+      <div class="controls">
+        <button class="backward">
+          <i class="fa-solid fa-backward"></i>
+        </button>
+        <button class="play-pause-btn">
+          <i class="fa-solid fa-play" id="controlIcon"></i>
+        </button>
+        <button class="forward">
+          <i class="fa-solid fa-forward"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'></script>
+<script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'></script>
+<script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'></script><script  src="./script.js"></script>
+
+<script>
+  const musicList = [
+      { src: 'sc/ot/s1.png', href: 'https://www.youtube.com/' },
+      { src: 'sc/s2.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s3.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s4.jpg', href: 'https://www.youtube.com/' },  
+      { src: 'sc/s6.jpg', href: 'https://www.youtube.com/' },   
+      { src: 'sc/s7.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s20.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/ot/s8.png', href: 'https://www.youtube.com/' },
+      { src: 'sc/s12.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s9.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s10.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/ot/s11.png', href: 'https://www.youtube.com/' },
+      { src: 'sc/ot/s13.webp', href: 'https://www.youtube.com/' },
+      { src: 'sc/s14.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/ot/s15.png', href: 'https://www.youtube.com/' },
+      { src: 'sc/s16.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s17.jpg', href: 'https://www.youtube.com/' },
+      { src: 'sc/ot/s18.jpeg', href: 'https://www.youtube.com/' },
+      { src: 'sc/s19.jpg', href: 'https://www.youtube.com/' },  
+      { src: 'sc/ot/s21.webp', href: 'https://www.youtube.com/' },
+      { src: 'sc/ot/s22.jpeg', href: 'https://www.youtube.com/' },
+  ];
+
+  const swiperWrapper = document.getElementById('swiper-wrapper');
+
+  musicList.forEach(music => {
+      const swiperSlide = document.createElement('div');
+      swiperSlide.className = 'swiper-slide';
+      swiperSlide.innerHTML = `
+          <img src="${music.src}" />
+          <div class="overlay">
+              <a href="${music.href}" target="_blank">
+                  <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+          </div>
+      `;
+      swiperWrapper.appendChild(swiperSlide);
+  });
+</script>
+
+<script>
+  // Initialize Swiper
+  const swiper = new Swiper('.swiper', {
+      // Swiper options here
+  });
+</script>
+
+</body>
+</html>
